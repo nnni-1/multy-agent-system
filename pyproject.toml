@@ -1,0 +1,24 @@
+[project]
+name = "local-agent-system"
+version = "0.1.0"
+description = "Local multi-agent system with LangGraph, llama.cpp and RAG-first workflow"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "langgraph>=0.2.34",
+  "pydantic>=2.9.2",
+  "PyYAML>=6.0.2",
+]
+
+[project.scripts]
+agent-run = "agent_system.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

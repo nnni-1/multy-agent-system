@@ -1,0 +1,20 @@
+version: 1
+name: index
+
+retrieval:
+  # Indexing mode should prioritize throughput stability on laptops.
+  bm25:
+    enabled: true
+    k1: 1.5
+    b: 0.75
+
+  semantic:
+    # Lightweight lexical semantic proxy (no extra embedding model required).
+    enabled: true
+    weight: 0.35
+
+  candidate_pool: 200
+
+llm:
+  # Keep LLM off during indexing by default (you run indexing separately anyway).
+  mock_on_llm_error: true

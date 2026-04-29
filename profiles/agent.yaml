@@ -1,0 +1,24 @@
+version: 1
+name: agent
+
+retrieval:
+  bm25:
+    enabled: true
+    k1: 1.5
+    b: 0.75
+
+  semantic:
+    enabled: true
+    weight: 0.35
+
+  # Retrieval funnel tuned for 16GB RAM laptops:
+  # widen candidates first, then rerank down.
+  candidate_pool: 80
+  rerank:
+    enabled: true
+    top_n_in: 40
+    top_n_out: 8
+
+llm:
+  provider: ollama
+  mock_on_llm_error: true
